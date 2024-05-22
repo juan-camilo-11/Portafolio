@@ -8,7 +8,7 @@ interface projectsProps {
   description: string;
   btnCode?: string;
   btnPreview?: string;
-  tags: string[];
+  tags: {text: string, class: string}[];
   img: string;
 }
 
@@ -66,7 +66,7 @@ const projects: projectsProps[] = [
         <h3 class="font-bold text-2xl">{project.name}</h3>
         <ul class="flex gap-2 flex-wrap">
           {project.tags.map((tag) => (
-            <li class={`${tag.class} rounded-full px-4 text-x<`}>{tag.text}</li>
+            <li class={`${tag.class} rounded-full px-4`}>{tag.text}</li>
           ))}
           
         </ul>
