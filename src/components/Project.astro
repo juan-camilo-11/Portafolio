@@ -1,0 +1,97 @@
+---
+import Button from "./Button.astro";
+import GitHubIcon from "../icons/GitHub.astro";
+import LinkIcon from "../icons/Link.astro";
+
+interface projectsProps {
+  name: string;
+  description: string;
+  btnCode?: string;
+  btnPreview?: string;
+  tags: string[];
+  img: string;
+}
+
+const Tags = {
+  Lit: {
+    text: "Lit",
+    class: "bg-gray-100 text-blue-600"
+  },
+  HTML: {
+    text: "HTML",
+    class: "bg-orange-600 text-white"
+  },
+  CSS: {
+    text: "CSS",
+    class: "bg-blue-600 text-white"
+  },
+  React: {
+    text: "React",
+    class: ""
+  },
+  Laravel: {
+    text: "Laravel",
+    class: "bg-gray-100 text-orange-600"
+  },
+  PHP: {
+    text: "PHP",
+    class: "bg-blue-800 text-white"
+  }
+};
+
+const projects: projectsProps[] = [
+  {
+    name: "Pure",
+    description: "Proyecto personal de Web Components realizado con Lit. Compone de una libreria de componentes reutilizables y personalizables, a demas de la Landing Page de su documentacion.",
+    tags: [Tags.Lit, Tags.HTML, Tags.CSS],
+    btnCode: "https://github.com/juan-camilo-11/pure-web-components",
+    btnPreview: "https://juan-camilo-11.github.io/pure-landing-page/introduccion",
+    img: "/public/pure.webp",
+  },
+  {
+    name: "QUA",
+    description:
+      "Proyecto formativo realizado para la presentacion final del programa ADSO. Pensado para el seguimiento de calidad del software, registrando sus pruebas realizadas, dandonos feeback y reportes del seguimiento.",
+    tags: [Tags.PHP, Tags.Laravel, Tags.CSS],
+    btnCode: "https://github.com/juan-camilo-11/ProyectoQua",
+    img: "/public/qua.webp",
+  },
+];
+---
+
+{
+  projects.map((project) => (
+    <article class="flex flex-col md:flex-row gap-2 sm:gap-4 md:max-h-56 w-full]">
+      <div class="flex flex-col gap-2 flex-1">
+        <h3 class="font-bold text-2xl">{project.name}</h3>
+        <ul class="flex gap-2 flex-wrap">
+          {project.tags.map((tag) => (
+            <li class={`${tag.class} rounded-full px-4 text-x<`}>{tag.text}</li>
+          ))}
+          
+        </ul>
+        <p class="text-gray-600 text-pretty">{project.description}</p>
+        <div class="flex gap-2 flex-wrap">
+          {project.btnCode && (
+            <Button type="Primary" text="Code" url={project.btnCode}>
+              <GitHubIcon />
+            </Button>
+          )}
+
+          {project.btnPreview && (
+            <Button
+              type="Primary"
+              text="Preview"
+              url={project.btnPreview}
+            >
+              <LinkIcon />
+            </Button>
+          )}
+        </div>
+      </div>
+      <div class="flex items-center flex-1">
+        <img class="w-full rounded-xl object-cover max-h-fit sm:max-h-80" style="max-height: -webkit-fill-available;" src={project.img} alt="" />
+      </div>
+    </article>
+  ))
+}

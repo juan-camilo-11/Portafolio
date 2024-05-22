@@ -1,0 +1,28 @@
+---
+const ExperienceData = [
+  {
+    date: "Octubre 2023 - Abril 2024",
+    title: "Banco de Bogotá - Desarrollador",
+    description:
+      "Desarrollé interfaces gráficas conforme al prototipo diseñado por el equipo de diseño. Analicé, desarrollé e implementé soluciones a los errores encontrados. Participé de forma crítica en las ceremonias SCRUM y contribuí a mejorar las prácticas diarias de desarrollo. Mi enfoque estuvo en crear soluciones basadas en las necesidades del negocio y en los criterios técnicos establecidos.",
+    btn: "",
+  },
+];
+---
+
+<ol class="relative border-s border-gray-700 ml-3">
+  {
+    ExperienceData.map((experience) => (
+      <li class="mb-10 ms-4">
+        <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:bg-gray-800" />
+        <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+          {experience.date}
+        </time>
+        <h3 class="text-lg font-semibold text-blue-700">{experience.title}</h3>
+        <p class="mb-4 text-base font-normal text-gray-600">
+          {experience.description}
+        </p>
+      </li>
+    ))
+  }
+</ol>

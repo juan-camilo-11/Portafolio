@@ -1,0 +1,75 @@
+---
+import Button from "../components/Button.astro";
+import Experience from "../components/Experience.astro";
+import Layout from "../layouts/Layout.astro";
+import GitHubIcon from "../icons/GitHub.astro";
+import LinkedinIcon from "../icons/Linkedin.astro";
+import TieIcon from "../icons/Tie.astro";
+import CodeIcon from "../icons/Code.astro";
+import UserIcon from "../icons/User.astro";
+import Project from "../components/Project.astro";
+---
+<Layout title="Portafolio de Juan Romero">
+  <main class="max-w-screen-lg mx-auto">
+    <section class="w-full mx-auto flex flex-col items-center py-20 gap-1">
+      <img
+        class="w-16 h-16 rounded-full object-cover"
+        src="/public/foto.jpeg"
+        alt="Foto de juan romero"
+      />
+      <span class="font-normal">Hola, yo soy</span>
+      <h2 class="font-bold text-3xl">Juan Romero</h2>
+      <p class="text-xl italic text-blue-700 rou">Desarrollador</p>
+      <article class="my-4 flex flex-wrap items-center justify-center gap-4">
+        <Button
+          type="Primary"
+          text="Linkedin"
+          url="https://www.linkedin.com/in/juan-camilo-romero-martin-501202219/"
+        >
+          <LinkedinIcon />
+        </Button>
+        <Button
+          type="Secondary"
+          text="Git Hub"
+          url="https://github.com/juan-camilo-11"
+        >
+          <GitHubIcon />
+        </Button>
+      </article>
+    </section>
+    <section class="w-11/12 mx-auto sm:w-4/5 max-w-screen-lg">
+      <div class="flex items-center gap-2 text-gray-900">
+        <TieIcon />
+        <h2 class="font-bold text-3xl my-4">Experiencia</h2>
+      </div>
+      <Experience />
+    </section>
+    <section class="w-11/12 mx-auto sm:w-4/5 max-w-screen-lg">
+      <div class="flex items-center gap-2 text-gray-900">
+        <CodeIcon />
+        <h2 class="font-bold text-3xl my-4">Proyectos</h2>
+      </div>
+      <div class="flex flex-col gap-16">
+        <Project />
+      </div>
+    </section>
+    <section class="w-11/12 mx-auto sm:w-4/5 max-w-screen-lg my-28">
+      <div class="flex items-center gap-2 text-gray-900">
+        <UserIcon />
+        <h2 class="font-bold text-3xl my-4">Sobre mí</h2>
+      </div>
+      <div class="flex flex-col gap-3 text-pretty font-normal text-gray-600">
+        <p>
+          Soy un joven desarrollador en busca de crecimiento personal. Me identifico con la idea de que a través de la pasión podemos hacer cosas increíbles, y gracias a ello, puedo avanzar en mi conocimiento continuo.
+        </p>
+        <p>
+          Mi primer contacto con la tecnología fue al instalar una ROM en mi celular, todo esto porque quería jugar de una mejor forma. Desde aquella vez, mi curiosidad por la programación empezó.
+        </p>
+        <p>
+          Actualmente, sigo mi aprendizaje de conocimientos, aunque ya he dado pasos importantes. Comencé con una Tecnología en Análisis y Desarrollo de Software en el SENA y sigo aprendiendo aún más con proyectos personales.
+        </p>
+      </div>
+    </section>
+  </main>
+</Layout>
+<style></style>
