@@ -1,0 +1,40 @@
+---
+import Button from "../components/Button.astro";
+import GitHubIcon from "../icons/GitHub.astro";
+import LinkedinIcon from "../icons/Linkedin.astro";
+import ButtonDownload from "../components/ButtonDownload.astro";
+---
+
+<article class="w-full mx-auto flex flex-col items-start py-20 gap-1">
+  <img
+    class="w-16 h-16 rounded-full object-cover"
+    src="foto.jpeg"
+    alt="Foto de juan romero"
+  />
+  <span>Hola, soy Juan Romero.</span>
+  <h2 class="font-bold text-3xl">
+    Desarrollador <span class="text-blue-700">Fullstack</span>
+  </h2>
+  <p class="text-xl text-neutral-600 max-w-lg">
+    Tecnólogo apasionado por el desarrollo de aplicaciones web y móviles. Poseo
+    +6 meses de experiencia trabajando con tecnologías como React, TypeScript y
+    NodeJS.
+  </p>
+  <article class="my-4 flex flex-wrap items-center justify-center gap-4">
+    <Button
+      type="Primary"
+      text="Linkedin"
+      url="https://www.linkedin.com/in/juan-camilo-romero-martin-501202219/"
+    >
+      <LinkedinIcon />
+    </Button>
+    <Button
+      type="Secondary"
+      text="Git Hub"
+      url="https://github.com/juan-camilo-11"
+    >
+      <GitHubIcon />
+    </Button>
+    <ButtonDownload />
+  </article>
+</article>

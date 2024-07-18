@@ -8,45 +8,73 @@ interface projectsProps {
   description: string;
   btnCode?: string;
   btnPreview?: string;
-  tags: {text: string, class: string}[];
+  tags: { text: string; class: string }[];
   img: string;
+  imgAlt: string;
 }
 
 const Tags = {
   Lit: {
     text: "Lit",
-    class: "bg-gray-100 text-blue-600"
+    class: "bg-blue-100 text-blue-700",
   },
   HTML: {
     text: "HTML",
-    class: "bg-orange-600 text-white"
+    class: "bg-orange-500 text-white",
   },
   CSS: {
     text: "CSS",
-    class: "bg-blue-600 text-white"
+    class: "bg-blue-600 text-white",
   },
   React: {
     text: "React",
-    class: ""
+    class: "bg-blue-500 text-white",
   },
   Laravel: {
     text: "Laravel",
-    class: "bg-gray-100 text-orange-600"
+    class: "bg-gray-200 text-orange-600",
   },
   PHP: {
     text: "PHP",
-    class: "bg-blue-800 text-white"
+    class: "bg-blue-900 text-white",
+  },
+  Node: {
+    text: "NodeJs",
+    class: "bg-green-700 text-white",
+  },
+  Mongo: {
+    text: "MongoDB",
+    class: "bg-green-800 text-white",
+  },
+  TypeScript: {
+    text: "TypeScript",
+    class: "bg-blue-700 text-white",
   }
 };
 
+
 const projects: projectsProps[] = [
   {
+    name: "Blink",
+    description:
+      "Este proyecto es un acortador de links que permite a los usuarios reducir la longitud de URLs largas, facilitando su compartición. Implementado con ReactJs y NodeJS, el acortador ofrece una interfaz sencilla y eficiente para crear y gestionar enlaces cortos.",
+    tags: [Tags.React, Tags.Node, Tags.TypeScript, Tags.Mongo],
+    btnCode: "https://github.com/juan-camilo-11/short-url-blink",
+    btnPreview:
+      "https://juan-camilo-11.github.io/short-url-blink/",
+    img: "blink.webp",
+    imgAlt: "Imagen del proyecto Blink"
+  },
+  {
     name: "Pure",
-    description: "Proyecto personal de Web Components desarrollado con Lit. Incluye una biblioteca de componentes reutilizables y personalizables, junto con una página de inicio para su documentación.",
+    description:
+      "Proyecto personal de Web Components desarrollado con Lit. Incluye una biblioteca de componentes reutilizables y personalizables, junto con una página de inicio para su documentación.",
     tags: [Tags.Lit, Tags.HTML, Tags.CSS],
     btnCode: "https://github.com/juan-camilo-11/pure-web-components",
-    btnPreview: "https://juan-camilo-11.github.io/pure-landing-page/introduccion",
+    btnPreview:
+      "https://juan-camilo-11.github.io/pure-landing-page/introduccion",
     img: "pure.webp",
+    imgAlt: "Imagen del proyecto Pure"
   },
   {
     name: "QUA",
@@ -55,6 +83,7 @@ const projects: projectsProps[] = [
     tags: [Tags.PHP, Tags.Laravel, Tags.CSS],
     btnCode: "https://github.com/juan-camilo-11/ProyectoQua",
     img: "qua.webp",
+    imgAlt: "Imagen del proyecto Qua"
   },
 ];
 ---
@@ -66,9 +95,8 @@ const projects: projectsProps[] = [
         <h3 class="font-bold text-2xl">{project.name}</h3>
         <ul class="flex gap-2 flex-wrap">
           {project.tags.map((tag) => (
-            <li class={`${tag.class} rounded-full px-4`}>{tag.text}</li>
+            <li class={`${tag.class} rounded-full px-4 text-sm`}>{tag.text}</li>
           ))}
-          
         </ul>
         <p class="text-gray-600 text-pretty">{project.description}</p>
         <div class="flex gap-2 flex-wrap">
@@ -79,18 +107,19 @@ const projects: projectsProps[] = [
           )}
 
           {project.btnPreview && (
-            <Button
-              type="Primary"
-              text="Preview"
-              url={project.btnPreview}
-            >
+            <Button type="Primary" text="Preview" url={project.btnPreview}>
               <LinkIcon />
             </Button>
           )}
         </div>
       </div>
       <div class="flex items-center flex-1">
-        <img class="w-full rounded-xl object-cover max-h-fit sm:max-h-80" style="max-height: -webkit-fill-available;" src={project.img} alt="" />
+        <img
+          class="w-full rounded-xl object-cover max-h-fit sm:max-h-80"
+          style="max-height: -webkit-fill-available;"
+          src={project.img}
+          alt={project.imgAlt}
+        />
       </div>
     </article>
   ))
